@@ -58,6 +58,7 @@ type CosmosRelayerChainConfigValue struct {
 	SignMode        string        `json:"sign-mode"`
 	Timeout         string        `json:"timeout"`
 	MinLoopDuration time.Duration `json:"min-loop-duration"`
+	ExtraCodecs     []string      `json:"extra-codecs"`
 }
 
 type CosmosRelayerChainConfig struct {
@@ -117,6 +118,7 @@ func ChainConfigToCosmosRelayerChainConfig(chainConfig ibc.ChainConfig, keyName,
 			OutputFormat:    "json",
 			SignMode:        "direct",
 			MinLoopDuration: loopDuration,
+			ExtraCodecs:     chainConfig.ExtraCodecs,
 		},
 	}
 }
